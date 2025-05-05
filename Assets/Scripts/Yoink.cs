@@ -5,7 +5,9 @@ public class Yoink : MonoBehaviour
     public GameObject fishingPole;
     public bool hasBeenClicked;
     public bool fishOn;
+    public Camera see;
 
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,11 +20,16 @@ public class Yoink : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             hasBeenClicked = true;
+            Debug.Log("has been yoinked");
 
-            if (fishOn == true)
+            if(hasBeenClicked == true)
             {
-                transform.rotation = Quaternion.Euler(-30, 0, 0);
+               
+                
+                
             }
+            
+            
             
             
             

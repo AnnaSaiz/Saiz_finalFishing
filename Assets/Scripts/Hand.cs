@@ -15,11 +15,13 @@ public class Hand : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         groundCollider = GameObject.Find("ground").GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
 
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class Hand : MonoBehaviour
         {
             if(hit.collider == groundCollider)
             {
-                targetPosition = Vector3.MoveTowards(transform.position, hit.point, Time.deltaTime * 20);
+                targetPosition = Vector3.MoveTowards(transform.position, hit.point, Time.deltaTime * 30);
 
                 if(targetPosition.y < 0.5f)
                 {
