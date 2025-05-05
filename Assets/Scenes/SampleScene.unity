@@ -206,11 +206,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d5ff7c291203c8442b63e1cc173ad5ce, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7808
+      value: 0.38676926
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d5ff7c291203c8442b63e1cc173ad5ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.815
+      value: -0.81763
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d5ff7c291203c8442b63e1cc173ad5ce, type: 3}
       propertyPath: m_LocalPosition.y
@@ -218,7 +218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d5ff7c291203c8442b63e1cc173ad5ce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.133
+      value: -9.1443
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d5ff7c291203c8442b63e1cc173ad5ce, type: 3}
       propertyPath: m_LocalRotation.w
@@ -486,10 +486,10 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 100
-  m_Range: 9.16
-  m_SpotAngle: 58.742058
-  m_InnerSpotAngle: 58.742058
+  m_Intensity: 41.3
+  m_Range: 21.3
+  m_SpotAngle: 92.5294
+  m_InnerSpotAngle: 42.878918
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -548,13 +548,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295275018}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38855276, y: -0, z: -0, w: 0.9214265}
-  m_LocalPosition: {x: 0, y: 4.26, z: -12.35}
+  m_LocalRotation: {x: 0.09624816, y: -0, z: -0, w: 0.9953574}
+  m_LocalPosition: {x: 0, y: 0.94, z: -12.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 45.729, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.046, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,6 +1460,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 950250085363193950, guid: be131efc2dabab842a02859069f68927, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 16.248873
+      objectReference: {fileID: 0}
     - target: {fileID: 950250085363193950, guid: be131efc2dabab842a02859069f68927, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08
