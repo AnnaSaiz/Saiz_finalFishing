@@ -1,16 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-public enum Level
-{
-    One,
-    Two,
-    Three,
-    Four
-
-}
 public class SpawnInFish : MonoBehaviour
-{ 
-    
+{
+
     public GameObject smallFry;
     public GameObject plainOlFish;
     public GameObject nibbler;
@@ -36,13 +28,13 @@ public class SpawnInFish : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SpawnFishIn(); 
+        SpawnFishIn();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isMoving == true)
+        if (isMoving)
         {
             foreach (var fishy in fishlist)
             {
@@ -55,27 +47,72 @@ public class SpawnInFish : MonoBehaviour
     {
         //need a variable for random amount, random range and random size
         int fishCount = Random.Range(randomNumberMin, randomNumberMax);
+
         for (int i = 0; i < fishCount; i++)
         {
             Vector3 randomPosition = new Vector3(
-                Random.Range(minEdge.x, maxEdge.x),
-                Random.Range(minEdge.y, maxEdge.y),
+                Random.Range(minEdge.x, maxEdge.x), 
+                0f,
                 Random.Range(minEdge.z, maxEdge.z)
             );
 
-            GameObject go = Instantiate(smallFry,randomPosition, Quaternion.identity);
+            GameObject selectedFish = GetRandomFish();
+
+            GameObject go = Instantiate(selectedFish, randomPosition, Quaternion.Euler(90, Random.Range(0f, 360f), 0));
+
+            Rigidbody rb = go.GetComponent<Rigidbody>();
+            if (rb != null )
+            {
+                rb.constraints = RigidbodyConstraints.FreezePositionY |
+                    RigidbodyConstraints.FreezeRotationX |
+                    RigidbodyConstraints.FreezeRotationZ;
+            }
 
             Vector3 randomDirection = new Vector3(
                Random.Range(-1f, 1f),
-               Random.Range(-1f, 1f),
+               0f,
                Random.Range(-1f, 1f)
            ).normalized;
 
             fishlist.Add(new fishCounting(go, randomDirection));
         }
 
-   
+
     }
+    GameObject GetRandomFish()
+    {
+        int smallChance = Random.Range(0, 100);
+
+        if(smallChance < 5)
+        {
+            return kingOfPond;
+        }
+        else if (smallChance >= 5 && smallChance < 10)
+        {
+            return mysteryFish;
+        }
+
+
+        int fishIndex = Random.Range(0, 4);
+        if (fishIndex == 0)
+        {
+            return smallFry;
+        }
+        else if (fishIndex == 1)
+        {
+            return plainOlFish;
+        }
+        else if (fishIndex == 2)
+        {
+            return nibbler;
+        }
+        else if(fishIndex == 3)
+        {
+            return touchyFish;
+        }
+        return smallFry;
+    }
+
     public class fishCounting
     {
         public GameObject objectMove;
@@ -88,10 +125,16 @@ public class SpawnInFish : MonoBehaviour
         }
         public void Move(float speed)
         {
-            objectMove.transform.Translate(direction * speed * Time.deltaTime);
+            Rigidbody rb = objectMove.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                Vector3 movement = new Vector3(direction.x, 0f, direction.z) * speed * Time.deltaTime;
+                rb.MovePosition(objectMove.transform.position + movement);
+            }
+        
         }
     }
-    
-    
-    
+
+
+
 }
